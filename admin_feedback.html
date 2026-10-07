@@ -1,0 +1,30 @@
+{% extends 'adminlayout.html' %}
+{% block content %}
+<div class="form-container2 mt-4">
+    <h3 class="form-title mb-4">User Feedback</h3>
+    {% if feedbacks %}
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fb in feedbacks %}
+                    <tr align="center">
+                        <td>{{ fb.user.first_name }}</td>
+                        <td>{{ fb.rating }} ⭐</td>
+                        <td>{{ fb.comment }}</td>
+                        <td>{{ fb.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No feedback yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

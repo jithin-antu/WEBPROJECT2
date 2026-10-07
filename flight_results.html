@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if results %}
+    <h3 class="mt-4">Available Flights</h3>
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Flight No</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Seats</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for flight in results %}
+            <tr align="center">
+                <td>{{ flight.flight_no }}</td>
+                <td>{{ flight.from_location }}</td>
+                <td>{{ flight.to_location }}</td>
+                <td>{{ flight.departure_time }}</td>
+                <td>{{ flight.arrival_time }}</td>
+                <td>{{ flight.date }}</td>
+                <td>{{ flight.price }}</td>
+                <td>{{ flight.seats_available }}</td>
+                <td>
+                    <a href="{{ url_for('main.book_flight', flight_id=flight.id) }}" class="btn btn-success btn-sm">Book</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% elif request.method == 'POST' %}
+    <p class="mt-4 text-danger">No flights found for the selected criteria.</p>
+{% endif %}
+{% endblock %}

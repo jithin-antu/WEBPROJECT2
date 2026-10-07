@@ -1,0 +1,26 @@
+{% extends 'adminlayout.html' %}
+{% block content %}
+<div class="form-container2 mt-4">
+    <h3 class="form-title">Registered Users</h3>
+    
+    <table width="100%">
+        <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Actions</th></tr></thead>
+        <tbody>
+            {% for user in users %}
+            <tr align="center">
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td>
+                    <form method="POST" action="{{ url_for('main.delete_user', user_id=user.id) }}" onsubmit="return confirm('Delete this user?')">
+                        <button class="btn5 btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+{% endblock %}
+<center><a href="{{ url_for('main.add_user') }}" class="btn btn-success mb-2">Add New User</a></center>

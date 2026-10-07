@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 form-title">Payment</h2>
+<form method="POST">
+    <div class="card-box">
+            <label class="card-label">Card Number</label>
+            <input type="text" name="card_number" class="card-input" placeholder="1234 5678 9012 3456" maxlength="16" required>
+
+            <div class="card-row">
+                <div>
+                    <label class="card-label">Expiry Date</label>
+                    <input type="month" name="expiry_date" class="card-input" required>
+                </div>
+                <div>
+                    <label class="card-label">CVV</label>
+                    <input type="text" name="cvv" class="card-input" maxlength="3" required>
+                </div>
+            </div>
+
+            <label class="card-label">Name on Card</label>
+            <input type="text" name="card_name" class="card-input" placeholder="John Doe" required>
+
+            <div class="card-icons">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="MasterCard">
+                <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+            </div>
+        </div>
+
+    <div>
+        <h4>{{ hotel.name }}</h4>
+        <p><strong>Location:</strong> {{ hotel.location }}</p>
+        <p><strong>Rooms Booked:</strong> {{ rooms }}</p>
+        <p><strong>Nights:</strong> {{ nights }}</p>
+        <p><strong>City:</strong> {{ hotel.city }}</p>
+
+        <p><strong>Price per Room:</strong> ₹{{ hotel.price_per_room }}</p>
+        <p><strong>Price per Night:</strong> ₹{{ hotel.price_per_night }}</p>
+        {% if booking %}
+  <p><strong>Room Numbers:</strong> {{ booking.room_numbers }}</p>
+{% endif %}
+
+        <hr>
+        <h5>Total Amount: <span class="text-success">₹{{ amount }}</span></h5>
+       
+            <center><button type="submit" class="btn btn-success mt-3">Confirm & Pay₹{{amount}}</button></center>
+        </form>
+    </div>
+</div>
+{% endblock %}

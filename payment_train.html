@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="form-container2 mt-5">
+    
+    <div class="payment-container">
+    <h2 class="form-title">Payment Method</h2>
+   
+
+    <form method="post">
+       
+        <div class="card-box">
+            <label class="card-label">Card Number</label>
+            <input type="text" name="card_number" class="card-input" placeholder="1234 5678 9012 3456" maxlength="16" required>
+
+            <div class="card-row">
+                <div>
+                    <label class="card-label">Expiry Date</label>
+                    <input type="month" name="expiry_date" class="card-input" required>
+                </div>
+                <div>
+                    <label class="card-label">CVV</label>
+                    <input type="text" name="cvv" class="card-input" maxlength="3" required>
+                </div>
+            </div>
+
+            <label class="card-label">Name on Card</label>
+            <input type="text" name="card_name" class="card-input" placeholder="John Doe" required>
+
+            <div class="card-icons">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="MasterCard">
+                <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+            </div>
+        </div>
+
+    <p><strong>Train:</strong> {{ train.train_no }}</p>
+    <p><strong>From:</strong> {{ train.from_station }}</p>
+    <p><strong>To:</strong> {{ train.to_station }}</p>
+    <p><strong>Date:</strong> {{ train.date }}</p>
+    <p><strong>Seats Booked:</strong> {{ booking.seats }}</p>
+    <p><strong>Price per Seat:</strong> ₹{{ train.price }}</p>
+    <p><strong>Seat numbers:</strong> {{ booking.seat_numbers }}</p>
+    <h4><strong>Total Amount:</strong> ₹{{ booking.total_amount }}</h4>
+    
+    
+
+        <button type="submit" class="btn btn-success mt-3">Pay {{booking.total_amount}}</button>
+    </form>
+</div>
+{% endblock %}

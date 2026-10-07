@@ -1,0 +1,32 @@
+{% extends 'adminlayout.html' %}
+{% block content %}
+<h2 class="mb-4 form-title" align="center">Train Bookings</h2>
+<table width="100%">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Train No</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+            <th>Seats</th>
+            <th>Seats numbers:</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in train_bookings %}
+        <tr align="center">
+            <td>{{ booking.user.first_name }}</td>
+            <td>{{ booking.train.train_no }}</td>
+            <td>{{ booking.train.from_station }}</td>
+            <td>{{ booking.train.to_station }}</td>
+            <td>{{ booking.train.date }}</td>
+            <td>{{ booking.seats }}</td>
+            <td>{{ booking.seat_numbers }}</td>
+            <td>₹{{ booking.amount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

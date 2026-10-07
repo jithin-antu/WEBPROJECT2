@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="form-container2 mt-5">
+    <h2 class="form-title">Book Hotel: {{ hotel.name }}</h2>
+    <form method="POST">
+        <p><strong>Location:</strong> {{ hotel.location }}</p>
+        <p><strong>Rooms selected:</strong> {{ rooms }}</p>
+        <p><strong>Available Rooms:</strong> {{ hotel.rooms_available }}</p>
+        <p><strong>Price per Night:</strong> {{ hotel.price_per_night }}</p>
+        <div class="mb-3">
+            <label for="nights" class="form-label">Number of Nights</label>
+            <input type="number" name="nights" id="nights" class="form-control" min="1" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+    </form>
+</div>
+{% endblock %}

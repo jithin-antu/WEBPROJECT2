@@ -1,0 +1,39 @@
+{% extends 'adminlayout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="mb-4 text-warning">Edit Hotel</h3>
+    <form method="POST" action="{{ url_for('main.edit_hotel', hotel_id=hotel.id) }}">
+        <div class="mb-3">
+            <label class="form-label">Hotel Name</label>
+            <input type="text" name="name" value="{{ hotel.name }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Location</label>
+            <input type="text" name="location" value="{{ hotel.location }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" name="city" value="{{ hotel.city }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Rooms Available</label>
+            <input type="number" name="rooms_available" value="{{ hotel.rooms_available }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price per Room (₹)</label>
+            <input type="number" step="0.01" name="price_per_room" value="{{ hotel.price_per_room }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price per Night (₹)</label>
+            <input type="number" step="0.01" name="price_per_night" value="{{ hotel.price_per_night }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Available Date</label>
+            <input type="date" name="date" value="{{ hotel.date }}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Hotel</button>
+        <a href="{{ url_for('main.admin_dashboard') }}" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+{% endblock %}

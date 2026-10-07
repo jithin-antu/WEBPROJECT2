@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h3>Available Trains</h3>
+    {% if results %}
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Train Name</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Date</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Seats</th>
+                    <th>Price</th>
+                    <th>Book</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for train in results %}
+                <tr align="center">
+                    <td>{{ train.train_no }}</td>
+                    <td>{{ train.from_station }}</td>
+                    <td>{{ train.to_station }}</td>
+                    <td>{{ train.date }}</td>
+                    <td>{{ train.departure_time }}</td>
+                    <td>{{ train.arrival_time }}</td>
+                    <td>{{ train.seats_available }}</td>
+                    <td>{{ train.price }}</td>
+                    <td>
+                        <a href="{{ url_for('main.book_train', train_id=train.id) }}" class="btn btn-success btn-sm">Book</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No trains found.</p>
+    {% endif %}
+</div>
+{% endblock %}

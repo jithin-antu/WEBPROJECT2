@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+<center><h2 class="form-title ">Search Hotels</h2>
+</center>
+<form method="POST">
+  <label class="form-label">Location:</label>
+  <select class="form-group" name="location" id="locationSelect" onchange="updateCityOptions()">
+    {% for loc in locations %}
+      <option value="{{ loc }}">{{ loc }}</option>
+    {% endfor %}
+  </select>
+
+  <label>City:</label>
+  <select name="city" id="citySelect" class="form-group"></select>
+
+  <label>Date:</label>
+  <input type="date" name="date" required>
+
+  <label>Rooms:</label>
+  <input type="number" name="rooms" required>
+
+  <button type="submit" class="btn btn-primary mt-3">Search</button>
+</form>
+
+<script>
+  const locationToCities = {{ location_to_cities | tojson }};
+  function updateCityOptions() {
+    const location = document.getElementById("locationSelect").value;
+    const citySelect = document.getElementById("citySelect");
+    citySelect.innerHTML = "";
+    if (locationToCities[location]) {
+      locationToCities[location].forEach(city => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        citySelect.appendChild(option);
+      });
+    }
+  }
+  window.onload = updateCityOptions;
+</script>
+{% endblock %}

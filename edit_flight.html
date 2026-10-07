@@ -1,0 +1,43 @@
+{% extends 'adminlayout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="mb-4 text-warning">Edit Flight</h3>
+    <form method="POST" action="{{ url_for('main.edit_flight', flight_id=flight.id) }}">
+        <div class="mb-3">
+            <label class="form-label">Flight No</label>
+            <input type="text" name="flight_no" value="{{ flight.flight_no }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">From</label>
+            <input type="text" name="from_location" value="{{ flight.from_location }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">To</label>
+            <input type="text" name="to_location" value="{{ flight.to_location }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Departure Time</label>
+            <input type="time" name="departure_time" value="{{ flight.departure_time }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Arrival Time</label>
+            <input type="time" name="arrival_time" value="{{ flight.arrival_time }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date</label>
+            <input type="date" name="date" value="{{ flight.date }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price (₹)</label>
+            <input type="number" name="price" value="{{ flight.price }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Seats Available</label>
+            <input type="number" name="seats_available" value="{{ flight.seats_available }}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Flight</button>
+        <a href="{{ url_for('main.admin_dashboard') }}" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+{% endblock %}

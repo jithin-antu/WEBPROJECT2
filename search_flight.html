@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+<center><h2 class="form-title ">Search Flights</h2></center>
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <label for="origin" class="form-label">From</label>
+    <select name="origin" class="form-group" required>
+        <option value="">Select Departure</option>
+        {% for city in ['Delhi', 'Mumbai', 'Chennai', 'Bangalore', 'Kolkata', 'Hyderabad','Goa','Pune','Jaipur','Lucknow'] %}
+      
+            <option value="{{ city }}">{{ city }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="destination">To</label>
+    <select name="destination" class="form-group" required>
+        <option value="">Select Destination</option>
+        {% for city in ['Delhi', 'Mumbai', 'Chennai', 'Bangalore', 'Kolkata', 'Hyderabad','Goa','Pune','Jaipur','Lucknow','Trivandrum','Amritsar','Varanasi'] %}
+            <option value="{{ city }}">{{ city }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="date">Date</label>
+    {{ form.date(class="form-control", required=True) }}
+
+    {{ form.submit(class="btn btn-primary mt-3") }}
+</form>
+
+
+{% endblock %}

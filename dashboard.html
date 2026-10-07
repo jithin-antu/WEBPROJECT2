@@ -1,0 +1,54 @@
+{% extends 'adminlayout.html' %}
+
+{% block content %}
+<div class="form-container">
+  <h2 class="form-title mb-4">Admin Dashboard</h2>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Flight Management -->
+    <div class="col-md-4">
+  <div class="card shadow-sm h-100 flight-card">
+    <div class="card-body text-center">
+      <div class="flight-icon">
+        <i class="fas fa-plane"></i>
+      </div>
+      <h5 class="card-title">Manage Flights</h5>
+      <a href="{{ url_for('main.manage_flights') }}" class="btn-flight">
+        Go to Flights
+      </a>
+    </div>
+  </div>
+</div>
+
+    <!-- Train Management -->
+    <div class="col-md-4">
+  <div class="card shadow-sm h-100 train-card">
+    <div class="card-body text-center">
+      <div class="train-icon">
+        <i class="fas fa-train"></i>
+      </div>
+      <h5 class="card-title">Manage Trains</h5>
+      <a href="{{ url_for('main.manage_trains') }}" class="btn-train">
+        Go to Trains
+      </a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hotel Management -->
+    <div class="col-md-4">
+  <div class="card shadow-sm h-100 hotel-card">
+    <div class="card-body text-center">
+      <div class="hotel-icon">
+        <i class="fas fa-hotel"></i>
+      </div>
+      <h5 class="card-title">Manage Hotels</h5>
+      <a href="{{ url_for('main.manage_hotels') }}" class="btn-hotel">
+        Go to Hotels
+      </a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}

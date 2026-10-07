@@ -1,0 +1,163 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="form-container2 mt-5">
+    <div class="row">
+
+        <!-- User Details Section -->
+        <div class="col-md-4">
+            <div class="card shadow rounded p-4 mb-4">
+                <h4 class="mb-3 form-title">User Profile</h4>
+                <div class="mb-2">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" value="{{ user.first_name }}" disabled>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" value="{{ user.email }}" disabled>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" value="{{ user.phone or '' }}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-control" rows="2" disabled>{{ user.address or '' }}</textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                   <center><a href="{{ url_for('main.edit_profile') }}" class="btn btn-primary">Edit Profile</a></center> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookings Section -->
+        <div class="form-container">
+            <div class="card shadow rounded p-4">
+                <h4 class="mb-3 form-title">My Bookings</h4>
+
+                <!-- Flight Bookings -->
+<h5 class="text-info">Flight Bookings</h5>
+{% if bookings %}
+    {% for booking in bookings %}
+        <div class="ticket-style border rounded p-4 mb-4 position-relative bg-white shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="mb-0 text-primary">{{ booking.flight.airline }}</h5>
+                <small class="text-muted">Booked on: {{ booking.booking_time.strftime('%Y-%m-%d %H:%M') }}</small>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Passenger:</strong> {{ booking.user.first_name }}</p>
+                    <p>
+                        <strong>Route:</strong> {{ booking.flight.from_location }} 
+                        <i class="fa fa-plane mx-2 text-info"></i> 
+                        {{ booking.flight.to_location }}
+                    </p>
+                    <p><strong>Flight Date:</strong> {{ booking.flight.date }}</p>
+                    <p><strong>Time:</strong> {{ booking.flight.time }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Seats Booked:</strong> {{ booking.seats }}</p>
+                    <p><strong>Total Fare:</strong> ₹{{ booking.amount }}</p>
+                    <p><strong>Seats:</strong> {{ booking.seat_numbers }}</p>
+                    <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+                    <p><strong>Status:</strong> {{ booking.status }}</p>
+                    {% if booking.status == 'Confirmed' %}
+                        <a href="{{ url_for('main.cancel_flight', booking_id=booking.id) }}" class="btn5 btn-sm btn-danger">Cancel</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No flight bookings found.</p>
+{% endif %}
+
+
+                <!-- Train Bookings -->
+<hr>
+<h5 class="text-info mb-3">Train Bookings</h5>
+
+{% if train_bookings %}
+    {% for booking in train_bookings %}
+        <div class="ticket-style border rounded p-4 mb-4 position-relative bg-white shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="mb-0 text-success">Train No: {{ booking.train.train_no }}</h5>
+                <small class="text-muted">Booked on: {{ booking.booking_time.strftime('%Y-%m-%d %H:%M') }}</small>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Passenger:</strong> {{ booking.user.first_name }}</p>
+                    <p>
+                        <strong>Route:</strong> {{ booking.train.from_station }} 
+                        <i class="fa fa-train mx-2 text-info"></i> 
+                        {{ booking.train.to_station }}
+                    </p>
+                    <p><strong>Train Date:</strong> {{ booking.train.date }}</p>
+                    <p><strong>Departure:</strong> {{ booking.train.departure_time }}</p>
+                    <p><strong>Arrival:</strong> {{ booking.train.arrival_time }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Seats Booked:</strong> {{ booking.seats }}</p>
+                    <p><strong>Seat numbers:</strong> {{ booking.seat_numbers }}</p>
+                    <p><strong>Total Fare:</strong> ₹{{ booking.total_amount }}</p>
+                    <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+                    <p><strong>Status:</strong> {{ booking.status }}</p>
+                    {% if booking.status == 'Confirmed' %}
+                        <a href="{{ url_for('main.cancel_train', booking_id=booking.id) }}" class="btn5 btn-sm btn-danger">Cancel</a>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+            
+
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No train bookings found.</p>
+{% endif %}
+
+
+                <!-- Hotel Bookings -->
+<hr>
+<h5 class="text-info">Hotel Bookings</h5>
+{% if hotel_bookings %}
+    <div class="row">
+        {% for booking in hotel_bookings %}
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title text-primary mb-0">{{ booking.hotel.name }}</h5>
+                        <span class="badge bg-secondary">{{ booking.hotel.location }}</span>
+                    </div>
+                    <hr>
+                    <p class="mb-1"><strong>Rooms:</strong> {{ booking.rooms }}</p>
+                    <p class="mb-1"><strong>Nights:</strong> {{ booking.nights }}</p>
+                    <p class="mb-1"><strong>Total Amount:</strong> ₹{{ booking.amount }}</p>
+                    <p class="mb-1"><strong>Room Numbers:</strong> {{ booking.room_numbers }}</p>
+
+                    <p class="mb-1"><strong>Check-in Date:</strong> {{ booking.hotel.date.strftime('%Y-%m-%d') }}</p>
+                    <p class="mb-1"><strong>Booked On:</strong> {{ booking.booking_time.strftime('%Y-%m-%d %H:%M') }}</p>
+                    <p><strong>Status:</strong> {{ booking.status }}</p>
+                    {% if booking.status == 'Confirmed' %}
+                        <a href="{{ url_for('main.cancel_hotel', booking_id=booking.id) }}" class="btn5 btn-sm btn-danger">Cancel</a>
+                    {% endif %}
+
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No hotel bookings found.</p>
+{% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

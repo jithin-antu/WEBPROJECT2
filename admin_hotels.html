@@ -1,0 +1,39 @@
+{% extends 'adminlayout.html' %}
+{% block content %}
+<div class="form-container2 mt-4">
+    <h3 class="form-title">Manage Hotels</h3>
+    
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Rooms Available</th>
+                <th>Date</th>
+                <th>Price/Room</th>
+                <th>Price/Night</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hotel in hotels %}
+            <tr align="center">
+                <td>{{ hotel.name }}</td>
+                <td>{{ hotel.location }}</td>
+                <td>{{ hotel.city }}</td>
+                <td>{{ hotel.rooms_available }}</td>
+                <td>{{ hotel.date }}</td>
+                <td>₹{{ hotel.price_per_room }}</td>
+                <td>₹{{ hotel.price_per_night }}</td>
+
+                <td>
+                    <a href="{{ url_for('main.edit_hotel', hotel_id=hotel.id) }}" class="btn1 btn-sm btn-primary">Edit</a>
+                    <a href="{{ url_for('main.delete_hotel', hotel_id=hotel.id) }}" class="btn5 btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div align="center"><a href="{{ url_for('main.add_hotel') }}" class="btn btn-success mb-3">Add New Hotel</a></div>
+</div>
+{% endblock %}

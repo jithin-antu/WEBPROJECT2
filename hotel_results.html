@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2 >Available Hotels in {{ location }} for {{ rooms }} room(s) on {{ date }}</h2>
+
+{% if hotels %}
+    <ul class="list-group mt-3">
+        {% for hotel in hotels %}
+        <li class="list-group-item">
+            <h5>{{ hotel.name }}</h5>
+            <p>{{ hotel.location }}</p>
+            <p>{{ hotel.city }}</p>
+            <p>₹{{hotel.price_per_night }} per night</p>
+            <p>Rooms available: {{ hotel.rooms_available }}</p>
+            <p>Date:{{hotel.date}} </p>
+           <a href="{{ url_for('main.book_hotel', hotel_id=hotel.id, rooms=rooms) }}" class="btn btn-success">Book</a>
+
+
+
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <div class="alert alert-warning mt-4">No hotels available for your selection.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Confirm Your Train Booking</h2>
+
+<p><strong>Train:</strong> {{ train.train_no }}</p>
+<p><strong>From:</strong> {{ train.from_station}}</p>
+<p><strong>To:</strong> {{ train.to_station }}</p>
+<p><strong>Date:</strong> {{ train.date }}</p>
+<p><strong>Departure Time:</strong> {{ train.departure_time }}</p>
+<p><strong>Arrival Time:</strong> {{ train.arrival_time }}</p>
+<p><strong>Seats:</strong> {{ train.seats_available }}</p>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="seats">Number of Seats</label>
+        <input type="number" name="seats" class="form-control" min="1" max="{{ train.seats_available }}" required>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Proceed to Payment</button>
+</form>
+{% endblock %}

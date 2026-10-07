@@ -1,0 +1,1052 @@
+
+
+main {
+    padding: 30px;
+    max-width: auto;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+form input {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+form input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.alert-info {
+    background-color: #d9edf7;
+    color: #31708f;
+}
+
+
+.form-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.form-container2 {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #fefefe;
+  padding: 10px;
+  border-radius: 40px;
+  
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 50px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form-button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+.form-note {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+
+
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+    body { background-color: #f5f5f5; color: #333; }
+    header { background-color: #2c3e50; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.8rem; font-weight: bold; }
+    .logo span { color: #3498db; }
+    nav ul { display: flex; list-style: none; }
+    nav ul li { margin-left: 1.5rem; }
+    nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    nav ul li a:hover { color: #3498db; }
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url('https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 2rem;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+    .btn {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .btn1 {
+  display: inline-block;
+  padding: 3px 3px;
+  border-radius:3px;
+  color: rgb(249, 247, 247);
+  font-weight: 500;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid #0b0b0b;
+  text-decoration: none;
+  background-color: rgb(48, 94, 212);
+  font-family: 'Times New Roman', Times, serif;
+   
+}
+.btn5 {
+  display: inline-block;
+  padding: 3px 3px;
+  border-radius:3px;
+  color: rgb(242, 246, 242);
+  font-weight: 500;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid #0b0b0b;
+  text-decoration: none;
+  background-color: rgba(160, 12, 12, 0.797);
+  font-family: 'Times New Roman', Times, serif;
+   
+}
+
+.btn6 {
+  display: inline-block;
+      
+      color: rgb(19, 19, 19);
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+  font-family: 'Times New Roman', Times, serif;
+   
+}
+    .btn:hover { background-color: #2980b9; }
+    .services { padding: 4rem 2rem; text-align: center; }
+    .services h2 { font-size: 2rem; margin-bottom: 2rem; color: #2c3e50; }
+    .services-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 300px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: #333;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    .service-icon img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links { display: flex; justify-content: center; margin-bottom: 1rem; }
+    .footer-links a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+    }
+     .form-group {
+            flex: 1;
+        }
+    .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Dropdown/Select Styling */
+select.form-group {
+  width: 100%;
+  min-width: 250px; /* Minimum width */
+  height: 46px; /* Fixed height */
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  appearance: none; /* Removes default arrow in some browsers */
+  background-image: 
+    linear-gradient(45deg, transparent 50%, #4361ee 50%),
+    linear-gradient(135deg, #4361ee 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px);
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* Hover and Focus States */
+select.form-group:hover {
+  border-color: #a0aec0;
+}
+
+select.form-group:focus {
+  border-color: #4361ee;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+/* Dropdown Options Styling */
+select.form-group option {
+  padding: 12px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+}
+
+/* For browsers that support ::after (custom dropdown arrow) */
+select.form-group::-ms-expand {
+  display: none; /* Hide default arrow in IE */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  select.form-group {
+    min-width: 100%; /* Full width on mobile */
+    height: 44px; /* Slightly smaller on mobile */
+  }
+}
+        
+
+
+
+
+
+
+/* Modern Form Styling */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a0ca3;
+  --primary-light: #e6e9ff;
+  --success: #4bb543;
+  --danger: #d9534f;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --border-radius: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --transition: all 0.2s ease;
+  --hotel-primary: #ffc107;
+  --hotel-secondary: #fd7e14;
+}
+
+/* Form Container */
+.form-container1 {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: auto;
+  box-shadow: var(--shadow-md);
+}
+
+/* Form Title */
+.form-title {
+  text-align: center;
+  color: var(black);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Labels */
+
+
+/* Input Fields */
+.form-control {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--border-radius);
+  background-color: var(--light);
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* Select Dropdowns */
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* Buttons */
+.btn3 {
+  display: inline-block;
+  padding: 0.85rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary3 {
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary3:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form Feedback */
+.form-feedback {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+  }
+  
+  .form-control {
+    padding: 0.75rem 1rem;
+  }
+}
+
+
+
+.btn4 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect (glow) */
+.btn4:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Active state */
+.btn4:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+.btn4-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn4-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}
+
+/* Admin Dashboard Button Styles */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a0ca3;
+  --secondary: #f72585;
+  --accent: #4cc9f0;
+  --dark: #2b2d42;
+  --light: #f8f9fa;
+  --border-radius: 12px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Button Container */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Base Button */
+.dashboard-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effects */
+.dashboard-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.3) 0%,
+    rgba(255,255,255,0) 60%
+  );
+  transform: rotate(30deg);
+  transition: var(--transition);
+}
+
+.dashboard-btn:hover::after {
+  left: 100%;
+}
+
+/* Individual Button Colors */
+.btn-flights {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+}
+
+.btn-trains {
+  background: linear-gradient(135deg, #f72585, #b5179e);
+}
+
+.btn-hotels {
+  background: linear-gradient(135deg, #4cc9f0, #4895ef);
+}
+
+/* Icon Styling */
+.btn-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Button Text */
+.btn-text {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Train Management Card */
+.train-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.train-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.train-icon {
+  font-size: 3rem;
+  color: #28a745;
+  margin-bottom: 1.5rem;
+  background: rgba(40, 167, 69, 0.1);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  color: #343a40;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.btn-train {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid #28a745;
+  color: #28a745;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+.btn-train:hover {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .train-icon {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 2.5rem;
+  }
+}
+
+/* Flight Management Card */
+.flight-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.flight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+}
+
+.flight-icon {
+  font-size: 3rem;
+  color: #4361ee; /* Primary blue */
+  margin-bottom: 1.5rem;
+  background: rgba(67, 97, 238, 0.1);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flight-card .card-title {
+  color: #343a40;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.btn-flight {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid #4361ee;
+  color: #4361ee;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+.btn-flight:hover {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flight-icon {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 2.5rem;
+  }
+}
+
+/* Hotel Management Card */
+.hotel-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.hotel-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffc107, #fd7e14);
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(255, 193, 7, 0.15);
+}
+
+.hotel-icon {
+  font-size: 2.8rem;
+  color: #ffc107;
+  margin-bottom: 1.25rem;
+  background: rgba(255, 193, 7, 0.08);
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.hotel-card:hover .hotel-icon {
+  transform: scale(1.1);
+  background: rgba(255, 193, 7, 0.15);
+}
+
+.hotel-card .card-title {
+  color: #2b2d42;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.btn-hotel {
+  padding: 0.65rem 1.75rem;
+  border: 2px solid #ffc107;
+  color: #ffc107;
+  font-weight: 500;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  z-index: 1;
+}
+
+.btn-hotel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #ffc107, #fd7e14);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-hotel:hover {
+  color: white !important;
+  border-color: transparent;
+}
+
+.btn-hotel:hover::before {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hotel-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2.4rem;
+  }
+}
+
+.add-flight-btn {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  background: #4361ee;
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(67, 97, 238, 0.2);
+  text-align: center;
+}
+
+.payment-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .payment-container h2 {
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .payment-container p {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .card-box {
+            border: 2px solid #dce3ed;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .card-label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .card-input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .card-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .card-row .card-input {
+            flex: 1;
+        }
+
+        .card-icons {
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .card-icons img {
+            height: 32px;
+            margin-left: 8px;
+        }
+
+        .btn-pay {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #005ce6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .summary {
+            background: #f1f5fb;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .summary p {
+            margin: 6px 0;
+        }
+
+        .analytics-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-left: 5px solid;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.analytics-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.03) 0%, rgba(255,255,255,0) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.analytics-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.analytics-card:hover::before {
+  opacity: 1;
+}
+
+/* Unique Card Colors */
+.flight-analytics {
+  border-left-color: #4361ee;
+}
+
+.train-analytics {
+  border-left-color: #28a745;
+}
+
+.hotel-analytics {
+  border-left-color: #ffc107;
+}
+
+.analytics-card h4 {
+  color: #6c757d;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.analytics-value {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #2b2d42;
+  margin: 0.5rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.revenue-highlight {
+  background: linear-gradient(135deg, #6f42c1, #4a1d96);
+  color: white !important;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 1rem;
+  box-shadow: 0 8px 24px rgba(111, 66, 193, 0.2);
+}
+
+.revenue-highlight h3 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.revenue-amount {
+  font-size: 3.2rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.revenue-amount::before {
+  content: "₹";
+  font-size: 2rem;
+  position: relative;
+  top: -0.5rem;
+  margin-right: 0.3rem;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.analytics-card:hover {
+  animation: pulse 1.5s ease infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 1.5rem;
+  }
+  
+  .analytics-value {
+    font-size: 2.2rem;
+  }
+  
+  .revenue-amount {
+    font-size: 2.5rem;
+  }
+}

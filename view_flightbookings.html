@@ -1,0 +1,39 @@
+{% extends 'adminlayout.html' %}
+{% block content %}
+<form class="form-container2" align="center">
+
+<!-- Flight Bookings -->
+    <h4 style="color: red;">Flight Bookings</h4>
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Flight No</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Seats</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in flight_bookings %}
+            <tr align="center">
+                <td>{{ booking.user.first_name }}</td>
+                <td>{{ booking.flight.flight_no }}</td>
+                <td>{{ booking.flight.from_location }}</td>
+                <td>{{ booking.flight.to_location }}</td>
+                <td>{{ booking.flight.date }}</td>
+                <td>{{ booking.seats }}</td>
+                <td>₹{{ booking.amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+</form>
+
+
+{% endblock %}

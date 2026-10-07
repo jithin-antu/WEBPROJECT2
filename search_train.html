@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-5">
+    <center><h2 class="form-title ">Search Trains</h2></center>
+    <form method="POST" action="{{ url_for('main.search_train') }}">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label>From:</label>
+                <select name="from_station" class="form-group" required>
+                    <option value="" disabled selected>Select Departure</option>
+                    {% for station in from_stations %}
+                        <option value="{{ station }}">{{ station }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>TO:</label>
+                <select name="to_station" class="form-group" required>
+                    <option value="" disabled selected>Select Destination</option>
+                    {% for station in to_stations %}
+                        <option value="{{ station }}">{{ station }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Date:</label>
+                <input type="date" name="date" class="form-group" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+{% endblock %}

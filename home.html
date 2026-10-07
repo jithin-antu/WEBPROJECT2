@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RoamEasy - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    /* Your CSS from the previous upload is applied here */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+    body { background-color: #f5f5f5; color: #333; }
+    header { background-color: #2c3e50; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.8rem; font-weight: bold; }
+    .logo span { color: #3498db; }
+    nav ul { display: flex; list-style: none; }
+    nav ul li { margin-left: 1.5rem; }
+    nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    nav ul li a:hover { color: #3498db; }
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url('https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 2rem;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+    .btn {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .btn:hover { background-color: #2980b9; }
+    .services { padding: 4rem 2rem; text-align: center; }
+    .services h2 { font-size: 2rem; margin-bottom: 2rem; color: #2c3e50; }
+    .services-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 300px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: #333;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    .service-icon img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links { display: flex; justify-content: center; margin-bottom: 1rem; }
+    .footer-links a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Roam<span>Easy</span></div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+        <li><a href="{{ url_for('main.about') }}">About</a></li>
+        <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+        {% if session.get('user_id') %}
+         <li class="nav-item"><a class="nav-link" href="{{ url_for('main.feedback') }}">Feedback</a></li>
+          <li><a href="{{ url_for('main.profile') }}">{{ session['user_name'] }}</a></li>
+          <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+        {% else %}
+          <li><a href="{{ url_for('main.login') }}">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Travel Made Easy With RoamEasy</h1>
+    <p>Book flights, trains, and hotels all in one place. Enjoy seamless travel planning with our user-friendly platform.</p>
+    
+  </section>
+
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+       <a href="{{ url_for('main.search_flight') }}" class="service-card">
+    <div class="service-icon"><i class="fas fa-plane"></i></div>
+    <h3>Flight Booking</h3>
+</a>
+            <a href="{{ url_for('main.search_train') }}" class="service-card">
+                <div class="service-icon"><i class="fas fa-train"></i></div>
+                <h3>Train Booking</h3>
+            </a>
+            <a href="{{ url_for('main.search_hotels') }}" class="service-card">
+                <div class="service-icon"><i class="fas fa-hotel"></i></div>
+                <h3>Hotel Booking</h3>
+            </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="{{ url_for('main.home') }}">Home</a>
+      <a href="{{ url_for('main.about') }}">About</a>
+      <a href="{{ url_for('main.contact') }}">Contact</a>
+    </div>
+    <p>&copy; 2025 RoamEasy. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

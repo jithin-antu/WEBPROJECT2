@@ -1,0 +1,30 @@
+{% extends 'adminlayout.html' %}
+{% block content %}
+<h2 class="mb-4 form-title" align="center">Hotel Bookings</h2>
+<table width="100%">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Hotel Name</th>
+            <th>Location</th>
+            <th>City</th>
+            <th>Rooms</th>
+            <th>Nights</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in hotel_bookings %}
+        <tr align="center">
+            <td>{{ booking.user.first_name }}</td>
+            <td>{{ booking.hotel.name }}</td>
+            <td>{{ booking.hotel.location }}</td>
+            <td>{{ booking.hotel.city }}</td>
+            <td>{{ booking.rooms }}</td>
+            <td>{{ booking.nights }}</td>
+            <td>₹{{ booking.amount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

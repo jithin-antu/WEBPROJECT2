@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2 class="form-title">Payment</h2>
+
+<form method="post">
+       
+        <div class="card-box">
+            <label class="card-label">Card Number</label>
+            <input type="text" name="card_number" class="card-input" placeholder="1234 5678 9012 3456" maxlength="16" required>
+
+            <div class="card-row">
+                <div>
+                    <label class="card-label">Expiry Date</label>
+                    <input type="month" name="expiry_date" class="card-input" required>
+                </div>
+                <div>
+                    <label class="card-label">CVV</label>
+                    <input type="text" name="cvv" class="card-input" maxlength="3" required>
+                </div>
+            </div>
+
+            <label class="card-label">Name on Card</label>
+            <input type="text" name="card_name" class="card-input" placeholder="John Doe" required>
+
+            <div class="card-icons">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="MasterCard">
+                <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+            </div>
+        </div>
+
+<div class="card p-3 mb-3">
+  <p><strong>Flight No:</strong> {{ flight.flight_no }}</p>
+  <p><strong>Route:</strong> {{ flight.from_location }} ➝ {{ flight.to_location }}</p>
+  <p><strong>Date:</strong> {{ flight.date }}</p>
+  <p><strong>Departure:</strong> {{ flight.departure_time }}</p>
+  <p><strong>Seat numbers:</strong> {{ flight.seat_numbers }}</p>
+  <p><strong>Total Amount:</strong> ₹{{ bill }}</p>
+</div>
+
+
+  <input type="submit" value="Pay ₹{{ bill }}" class="btn btn-primary">
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="form-container2 mt-5">
+    <h2 class="mb-4 form-title">Flight Booking Ticket</h2>
+    <div class="card p-4 shadow">
+        <p><strong>Flight No:</strong> {{ flight.flight_no }}</p>
+        <p><strong>From:</strong> {{ flight.from_location }}</p>
+        <p><strong>To:</strong> {{ flight.to_location }}</p>
+        <p><strong>Date:</strong> {{ flight.date }}</p>
+        <p><strong>Departure Time:</strong> {{ flight.departure_time }}</p>
+        <p><strong>Arrival Time:</strong> {{ flight.arrival_time }}</p>
+        <p><strong>Seats:</strong> {{ booking.seats }}</p>
+        <p><strong>Amount Paid:</strong> ₹{{ booking.amount }}</p>
+        <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+        <p><strong>Date:</strong> {{ flight.date }}</p>
+        <p><strong>Seat numbers:</strong> {{ booking.seat_numbers }}</p>
+        <img src="{{ qr_img }}" alt="QR Code" class="mt-3" style="width: 150px;">
+        <button onclick="window.print()" class="btn btn-primary mt-3">Print Ticket</button>
+    </div>
+</div>
+{% endblock %}

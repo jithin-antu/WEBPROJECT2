@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Book Flight</h2>
+
+<div class="card p-3 mb-3">
+    <p><strong>Flight No:</strong> {{ flight.flight_no }}</p>
+    <p><strong>Route:</strong> {{ flight.from_location }} ➝ {{ flight.to_location }}</p>
+    <p><strong>Date:</strong> {{ flight.date }}</p>
+    <p><strong>Departure:</strong> {{ flight.departure_time }}</p>
+    <p><strong>Arrival:</strong> {{ flight.arrival_time }}</p>
+    <p><strong>Price per seat:</strong> ₹{{ flight.price }}</p>
+    <p><strong>Seats Available:</strong> {{ flight.seats_available }}</p>
+</div>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="seats">Number of Seats</label>
+        <input type="number" name="seats" class="form-control" min="1" max="{{ flight.seats_available }}" required>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Proceed to Payment</button>
+</form>
+
+{% endblock %}

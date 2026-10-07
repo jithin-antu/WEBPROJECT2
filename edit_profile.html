@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow rounded p-4">
+        <h3>Edit Profile</h3>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" value="{{ user.email }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" name="phone" value="{{ user.phone or '' }}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <textarea class="form-control" name="address" rows="2">{{ user.address or '' }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">New Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Leave blank to keep current password">
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="{{ url_for('main.profile') }}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

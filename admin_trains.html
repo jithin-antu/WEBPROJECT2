@@ -1,0 +1,41 @@
+{% extends 'adminlayout.html' %}
+{% block content %}
+<div class="form-container2 mt-4">
+    <h3 class="form-title">Manage Trains</h3>
+   
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Train No</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Price</th>
+                <th>Seats</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for train in trains %}
+            <tr align="center">
+                <td>{{ train.train_no }}</td>
+                <td>{{ train.from_station }}</td>
+                <td>{{ train.to_station }}</td>
+                <td>{{ train.date }}</td>
+                <td>{{ train.departure_time }}</td>
+                <td>{{ train.arrival_time }}</td>
+                <td>₹{{ train.price }}</td>
+                <td>{{ train.seats_available }}</td>
+                <td>
+                    <a href="{{ url_for('main.edit_train', train_id=train.id) }}" class="btn1 btn-sm btn-primary">Edit</a>
+                    <a href="{{ url_for('main.delete_train', train_id=train.id) }}" class="btn5 btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+ <div align="center"><a href="{{ url_for('main.add_train') }}" class="btn btn-success mb-3">Add New Train</a></div>
+{% endblock %}
